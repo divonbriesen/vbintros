@@ -1,0 +1,217 @@
+/* ----------BODY---------- */
+body {
+  background-image: linear-gradient(black, blue, black);
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+
+
+
+
+/* ----------HEADER & FOOTER---------- */
+header,
+footer {
+  max-width: 100%;
+  height: fit-content;
+  text-align: center;
+}
+
+header {
+  padding: 0 50px;
+}
+
+header *:not(hr) {
+  margin: 0;
+}
+
+header h1 {
+  font-size: 72px;
+}
+
+footer {
+  padding: 25px 50px;
+}
+
+.validation_buttons {
+  text-decoration: none;
+}
+
+
+
+
+
+/* ----------MAIN---------- */
+main {
+  max-width: 100%;
+  min-height: 240px;
+  padding: 25px 150px;
+}
+
+a {
+  margin: 0 10px;
+  color: deepskyblue;
+  text-decoration: none;
+}
+
+form:not(#login-form) {
+  width: 50%;
+  height: fit-content;
+  background-color: black;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5%;
+}
+
+
+
+
+
+/* -----DATABASE----- */
+.form-container {
+  background-color: black;
+  position: absolute;
+  right: 25px;
+}
+
+#login-form button {
+  height: fit-content;
+  margin-top: 2px;
+  font-size: medium;
+}
+
+h3 {
+  text-align: center;
+}
+
+table {
+  width: 50%;
+  margin: 0 auto 100px auto;
+  color: deepskyblue;
+}
+
+tr {
+  width: 50%;
+}
+
+section {
+  margin: 0 auto;
+}
+
+h4 {
+  color: greenyellow;
+  font-size: x-large;
+}
+
+p,
+h5 {
+  width: 75%;
+}
+
+p {
+  margin: 20px auto;
+ 
+}
+
+h5 {
+  margin: 0 auto;
+  font-size: xx-large;
+}
+
+#headshot-container {
+  width: fit-content;
+  height: fit-content;
+  margin: 25px auto;
+  text-align: center;
+}
+
+#headshot-container img {
+  max-width: 300px;
+  height: auto;
+}
+
+ul {
+  font-size: large;
+}
+
+li {
+  margin: 10px 0;
+}
+
+
+
+
+
+/* -----REGISTRATION/EDIT----- */
+#mInitial-container input {
+  width: 20px;
+}
+
+#coursesTaken-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#coursesTaken-container input {
+  width: 100%;
+}
+
+textarea {
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+
+
+/* ----------TOOLS---------- */
+.center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.indent {
+  margin-left: 10px;
+}
+
+a:hover {
+  color: white;
+}
+
+button {
+  width: 100%;
+  height: 40px;
+  background-color: blue;
+  color: white;
+  font-size: large;
+  font-weight: bolder;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: yellowgreen;
+  color: black;
+}
+
+.success {
+  width: 70%;
+  background: rgba(150,255,150,.7);
+  margin: 5px auto 0 auto;
+  padding: 5px 0;
+  color: white;
+  text-align: center;
+}
+
+.error {
+  width: 70%;
+  background: rgba(255,0,0,.7);
+  margin: 5px auto 0 auto;
+  padding: 5px 0;
+  color: white;
+  text-align: center;
+}

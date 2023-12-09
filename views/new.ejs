@@ -1,0 +1,102 @@
+<%- include('./templates/header.ejs') %>
+<main id="registration">
+    <a href="/">BACK TO DATABASE</a>
+
+    <form action="/newStudent" method="post" id="student-form" enctype="multipart/form-data">
+        <h1>New Student</h1>
+
+        <div class="flex">
+            <div>
+                <label for="username">Username</label><br>
+                    <input type="text" name="username" required>
+            </div>
+            <div class="indent">
+                <label for="password">Password</label><br>
+                    <input type="password" name="password" required>
+            </div>
+        </div>
+        <hr>
+        <div class="flex">
+            <div>
+                <div class="flex">
+                    <div>
+                        <label for="fName">First Name</label><br>
+                            <input type="text" name="fName" required>
+                    </div>
+                    <div id="mInitial-container" class="indent">
+                        <label for="mInitial">M.I.</label><br>
+                            <input type="text" name="mInitial" maxlength="2" required>
+                    </div>
+                </div>
+                <br>
+                <label for="preferedName">Prefered Name</label><br>
+                    <input type="text" name="preferedName" required><br>
+                <br>
+                <label for="image">Profile Pic <em>(optional)</em></label><br>
+                    <input type="file" accept="image/*" name="image"> 
+            </div>
+            <div>
+                <label for="lName">Last Name</label><br>
+                    <input type="text" name="lName" required><br>
+                <br>
+                <label for="companyName">Mascot Name</label><br>
+                    <input type="text" name="companyName" required><br>
+                <br>
+                <label for="caption">Image Caption <em>(optional)</em></label><br>
+                    <input type="text" name="caption">
+            </div>
+        </div>
+        <hr>
+        <label for="personalBackground">Personal Background</label><br>
+            <textarea rows="5" cols="60" name="personalBackground" required></textarea><br>
+        <br>
+        <label for="professionalBackground">Professional Background</label><br>
+            <textarea rows="5" cols="60" name="professionalBackground" required></textarea><br>
+        <br>
+        <label for="academicBackground">Academic Background</label><br>
+            <textarea rows="5" cols="60" name="academicBackground" required></textarea><br>
+        <br>
+        <label for="subjectBackground">Background in this Subject</label><br>
+            <textarea rows="5" cols="60" name="subjectBackground" required></textarea><br>
+        <br>
+        <label for="platform">Primary Computer Platform</label><br>
+            <textarea rows="5" cols="60" name="platform" required></textarea><br>
+        <br>
+        <div id="coursesTaken-container">
+            <div>
+                <label>Current Courses</label><br>
+                <input type="text" name="course1" placeholder="i.e. ITIS3135 - Web-Based Application Design and Development" required">
+                <input type="text" name="course2">
+                <input type="text" name="course3">
+                <input type="text" name="course4">
+                <input type="text" name="course5">
+            </div>
+            
+            <div>
+                <label>Reason for Taking</label><br>
+                <input type="text" name="courseReason1" placeholder="i.e. It's require for my major. Plus, it sounded interesting." required>
+                <input type="text" name="courseReason2">
+                <input type="text" name="courseReason3">
+                <input type="text" name="courseReason4">
+                <input type="text" name="courseReason5">
+            </div>
+        </div>
+        <br>
+        <label for="somethingInteresting">Something Funny/Interesting about Me <em>(optional)</em></label><br>
+            <textarea rows="5" cols="60" name="somethingInteresting"></textarea><br>
+        <br>
+        <label for="elseToShare">I'd Also Like to Share <em>(optional)</em></label><br>
+            <textarea rows="5" cols="60" name="elseToShare"></textarea><br>
+        <br>
+        <input type="checkbox" required>
+        <em>
+            I understand that what is on this page is not<br>
+            &emsp;&nbsp;&nbsp;password protected and I will not put anything<br>
+            &emsp;&nbsp;&nbsp;here that I don’t want publicly available.
+        </em><br>
+        <br>
+
+        <button type="submit">Submit</button>
+    </form>
+</main>
+<%- include('./templates/footer.ejs') %>

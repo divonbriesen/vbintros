@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Database</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>STUDENT INTRODUCTIONS</h1>
+        <hr>
+        <hr>
+        <% if (errorMessages.length > 0) { %>
+            <% errorMessages.forEach(message=> { %>
+            <div class="error"><%= message %></div>
+            <% }); %>
+        <% } %>
+        <% if (successMessages.length > 0) { %>
+            <% successMessages.forEach(message => { %>
+            <div class="success"><%= message %></div>
+            <% }); %>
+        <% } %>
+    </header>

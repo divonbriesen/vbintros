@@ -1,0 +1,84 @@
+<%- include('./templates/header.ejs') %>
+<main id="registration">
+    <a href="/">BACK TO DATABASE</a>
+
+    <form action="/<%= student.username %>" method="post" id="student-form" enctype="multipart/form-data">
+        <h1>Edit Student</h1>
+        
+        <div class="flex">
+            <div>
+                <div class="flex">
+                    <div>
+                        <label for="fName">First Name</label><br>
+                            <input type="text" name="fName" required value="<%= student.fName %>">
+                    </div>
+                    <div id="mInitial-container" class="indent">
+                        <label for="mInitial">M.I.</label><br>
+                            <input type="text" name="mInitial" maxlength="2" required value="<%= student.mInitial %>">
+                    </div>
+                </div>
+                <br>
+                <label for="preferedName">Prefered Name</label><br>
+                    <input type="text" name="preferedName" required value="<%= student.preferedName %>"><br>
+                <br>
+                <label for="image">Profile Pic <em>(optional)</em></label><br>
+                    <input type="file" accept="image/*" name="image"> 
+            </div>
+            <div>
+                <label for="lName">Last Name</label><br>
+                    <input type="text" name="lName" required value="<%= student.lName %>"><br>
+                <br>
+                <label for="companyName">Mascot Name</label><br>
+                    <input type="text" name="companyName" required value="<%= student.companyName %>"><br>
+                <br>
+                <label for="caption">Image Caption <em>(optional)</em></label><br>
+                    <input type="text" name="caption">
+            </div>
+        </div>
+        <hr>
+        <label for="personalBackground">Personal Background</label><br>
+            <textarea rows="5" cols="60" name="personalBackground" required><%= student.personalBackground %></textarea><br>
+        <br>
+        <label for="professionalBackground">Professional Background</label><br>
+            <textarea rows="5" cols="60" name="professionalBackground" required><%= student.professionalBackground %></textarea><br>
+        <br>
+        <label for="academicBackground">Academic Background</label><br>
+            <textarea rows="5" cols="60" name="academicBackground" required><%= student.academicBackground %></textarea><br>
+        <br>
+        <label for="subjectBackground">Background in this Subject</label><br>
+            <textarea rows="5" cols="60" name="subjectBackground" required><%= student.subjectBackground %></textarea><br>
+        <br>
+        <label for="platform">Primary Computer Platform</label><br>
+            <textarea rows="5" cols="60" name="platform" required><%= student.platform %></textarea><br>
+        <br>
+        <div id="coursesTaken-container">
+            <div>
+                <label>Current Courses</label><br>
+                <input type="text" name="course1" placeholder="i.e. ITIS3135 - Web-Based Application Design and Development" required value="<%= student.course1 %>">
+                <input type="text" name="course2" value="<%= student.course2 %>">
+                <input type="text" name="course3" value="<%= student.course3 %>">
+                <input type="text" name="course4" value="<%= student.course4 %>">
+                <input type="text" name="course5" value="<%= student.course5 %>">
+            </div>
+            
+            <div>
+                <label>Reason for Taking</label><br>
+                <input type="text" name="courseReason1" placeholder="i.e. It's require for my major. Plus, it sounded interesting." required value="<%= student.courseReason1 %>">
+                <input type="text" name="courseReason2" value="<%= student.courseReason2 %>">
+                <input type="text" name="courseReason3" value="<%= student.courseReason3 %>">
+                <input type="text" name="courseReason4" value="<%= student.courseReason4 %>">
+                <input type="text" name="courseReason5" value="<%= student.courseReason5 %>">
+            </div>
+        </div>
+        <br>
+        <label for="somethingInteresting">Something Funny/Interesting about Me <em>(optional)</em></label><br>
+            <textarea rows="5" cols="60" name="somethingInteresting"><%= student.somethingInteresting %></textarea><br>
+        <br>
+        <label for="elseToShare">I'd Also Like to Share <em>(optional)</em></label><br>
+            <textarea rows="5" cols="60" name="elseToShare"><%= student.elseToShare %></textarea><br>
+        <br>
+
+        <button type="submit">Submit</button>
+    </form>
+</main>
+<%- include('./templates/footer.ejs') %>

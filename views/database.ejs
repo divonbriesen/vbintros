@@ -1,0 +1,100 @@
+<%- include('./templates/header.ejs') %>
+<main id="database">
+    <fieldset class="form-container">
+        <legend>Login/Logout</legend>
+        <% if (!user) { %>
+            <form action="/" method="post" id="login-form">
+                <input type="text" name="username" placeholder="username" required><br>
+                <input type="password" name="password" placeholder="password" required>
+                <br>
+
+                <button type="submit">LOGIN</button>
+                <hr>
+                <a href="/newStudent">CREATE ACCOUNT</a>
+            </form>
+        <% } else { %> 
+            <button><a href="/logout">LOGOUT</a></button>
+        <% } %>
+    </fieldset>
+
+    <% if (students.length) { %>
+        <h3>Click a Student to Jump to that Profile</h3>
+
+        <table>
+            <tbody>
+                <% let index = 1;
+                students.forEach(student => {
+                    if (student.username != 'admin') { %>
+                        <tr>
+                            <td><a href="#<%= student.fName %>_<%= student.lName %>"><%= student.lName %>, <%= student.fName %></a></td>
+                            <td><%= index %></td>
+                        </tr>
+                    <% }
+                    index++;
+                }) %>
+            </tbody>
+        </table>
+
+        <% students.forEach(student => {
+            if (student.username != 'admin') { %>
+                <br>
+                <br>
+                <hr>
+                <br>
+                <section>
+                    <h4 id="<%= student.fName %>_<%= student.lName %>"><%= student.lName %>, <%= student.fName %></h4>
+                    <p>
+                        I understand that what is on this page is not password protected and I will not
+                        put anything here that I don’t want publicly available.
+                        <br>
+                        <br>
+                        <em>&nbsp;&nbsp;&nbsp;&nbsp;~ <%= student.fName %> <%= student.mInitial %>. <%= student.lName %> <%= student.dateSigned %></em>
+                    </p>
+
+                    <h5 class="center"><%= student.fName %> "<%= student.preferedName %>" <%= student.mInitial %>. <%= student.lName %> || <%= student.companyName %></h5>
+
+                    <% if (user == student.username || user == 'admin') { %>
+                        <p class="center">
+                            <a href="/<%= student.username %>/edit">EDIT THIS PROFILE</a> || <a href="/<%= student.username %>/delete">DELETE THIS PROFILE</a>
+                        </p>
+                    <% } %>
+
+                    <figure id="headshot-container">
+                        <img src="<%= student.image %>" alt="<%= student.caption %>" id="headshot">
+                        <figcaption><i><%= student.caption %></i></figcaption>
+                    </figure>
+
+                    <ul>
+                        <li><strong>Personal Background:</strong> <%= student.personalBackground %></li>
+                        <li><strong>Professional Background:</strong> <%= student.professionalBackground %></li>
+                        <li><strong>Academic Background:</strong> <%= student.academicBackground %></li>
+                        <li><strong>Background in this Subject:</strong> <%= student.subjectBackground %></li>
+                        <li><strong>Primary Computer Platform:</strong> <%= student.platform %></li>
+                        <li>
+                            <strong>Courses Taken & Why:</strong>
+                            <% if (student.course1) { %>
+                                <ul>
+                                    <% for (let i = 1; i <= 5; i++) { %>
+                                        <% if (student['course' + i]) { %>
+                                            <li><strong><%= student['course' + i] %>:</strong> <%= student['courseReason' + i] %></li>
+                                        <% }
+                                    } %>
+                                </ul>
+                            <% } %>
+                        </li>
+                        <% if (student.somethingInteresting) { %>
+                            <li><strong>A Funny/Interesting Thing about Me:</strong> <%= student.somethingInteresting %></li>
+                        <% }
+
+                        if (student.elseToShare) { %>
+                            <li><strong>Something Else I'd to Share:</strong> <%= student.elseToShare %></li>
+                        <% } %>
+                    </ul>
+                </section>
+            <% }
+        })
+    } else { %>
+        <h2>There a no students listed at this time.</h2>
+    <% } %>
+</main>
+<%- include('./templates/footer.ejs') %>
